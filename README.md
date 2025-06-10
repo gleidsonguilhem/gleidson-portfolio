@@ -17,15 +17,15 @@ Welcome to my personal developer portfolio — built with modern web technologie
 
 ## 📁 Project Structure
 
-gleidson-portfolio/
-├── public/ # Static assets (favicon, profile image, etc.)
-├── src/
-│ ├── App.tsx # Main UI with dark mode toggle
-│ ├── main.tsx # Entry point with MUI theme provider
-│ └── theme.ts # Custom MUI theme based on light/dark mode
-├── index.html # Root HTML template
-├── package.json # Scripts and dependencies
-└── README.md # You're here!
+    gleidson-portfolio/
+    ├── public/              # Static assets (favicon, profile image, etc.)
+    ├── src/
+    │   ├── App.tsx          # Main UI with dark mode toggle
+    │   ├── main.tsx         # Entry point with MUI theme provider
+    │   └── theme.ts         # Custom MUI theme based on light/dark mode
+    ├── index.html           # Root HTML template
+    ├── package.json         # Scripts and dependencies
+    └── README.md            # You're here!
 
 ## Features
 
