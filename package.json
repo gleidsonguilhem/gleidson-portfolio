@@ -1,6 +1,7 @@
 {
   "name": "gleidson-portfolio",
   "private": true,
+  "homepage": "https://gleidsonguilhem.github.io/gleidson-portfolio",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
