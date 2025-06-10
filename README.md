@@ -1,54 +1,44 @@
-# React + TypeScript + Vite
+# Gleidson's Developer Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to my personal developer portfolio — built with modern web technologies to showcase my skills, projects, and experience.
 
-Currently, two official plugins are available:
+![Screenshot](./public/screenshot.png) <!-- Optional: Add a screenshot of the homepage -->
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech Stack
 
-## Expanding the ESLint configuration
+-  [Vite](https://vitejs.dev/) – blazing-fast development
+-  [React](https://reactjs.org/) – modern UI framework
+-  [TypeScript](https://www.typescriptlang.org/) – strong typing for safety & clarity
+-  [Material UI (MUI)](https://mui.com/) – sleek and responsive UI components
+-  Dark Mode – theme toggle powered by MUI and React state
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🌍 Live Demo
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+[View Portfolio on GitHub Pages](https://gleidson-dev.github.io/gleidson-portfolio/)
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 📁 Project Structure
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+gleidson-portfolio/
+├── public/ # Static assets (favicon, profile image, etc.)
+├── src/
+│ ├── App.tsx # Main UI with dark mode toggle
+│ ├── main.tsx # Entry point with MUI theme provider
+│ └── theme.ts # Custom MUI theme based on light/dark mode
+├── index.html # Root HTML template
+├── package.json # Scripts and dependencies
+└── README.md # You're here!
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+## Features
+
+- Responsive layout with Material UI
+- Dark/Light mode toggle with animated icon
+- Simple, clean design focused on personal branding
+- Easy to expand with additional sections: Projects, About, Contact, etc.
+
+## 📦 Getting Started
+
+### 1. Clone the repo
+
+```bash
+git clone https://github.com/gleidson-dev/gleidson-portfolio.git
+cd gleidson-portfolio
