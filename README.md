@@ -25,8 +25,8 @@ Welcome to my personal developer portfolio — built with modern web technologie
     │   └── theme.ts         # Custom MUI theme based on light/dark mode
     ├── index.html           # Root HTML template
     ├── package.json         # Scripts and dependencies
-    └── README.md          **# You're here!**
-
+    └── README.md            📌 You're here! 
+    
 ## Features
 
 - Responsive layout with Material UI
