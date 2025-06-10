@@ -1,5 +1,6 @@
 import { createTheme } from "@mui/material/styles";
 
+//Theme
 export const getTheme = (mode: 'light' | 'dark') => 
     createTheme({
         palette: {
