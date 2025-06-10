@@ -14,7 +14,7 @@ Welcome to my personal developer portfolio — built with modern web technologie
 
 ## 🌍 Live Demo
 
-[View Portfolio on GitHub Pages](https://gleidson-dev.github.io/gleidson-portfolio/)
+[View Portfolio on GitHub Pages](https://gleidsonguilhem.github.io/gleidson-portfolio/)
 
 ## 📁 Project Structure
 
