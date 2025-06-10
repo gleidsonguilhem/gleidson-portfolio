@@ -39,5 +39,5 @@ Welcome to my personal developer portfolio — built with modern web technologie
 ### 1. Clone the repo
 
 ```bash
-git clone https://github.com/gleidson-dev/gleidson-portfolio.git
+git clone https://github.com/gleidsonguilhem/gleidson-portfolio.git
 cd gleidson-portfolio
