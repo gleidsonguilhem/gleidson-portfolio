@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import { ThemeProvider, CssBaseline } from '@mui/material';
 import { getTheme } from './theme';
+import JavaProjects from './components/JavaProjects';
 
 const Root = () => {
   const [mode, setMode] = useState<'light' | 'dark'>('light');
@@ -11,12 +12,15 @@ const Root = () => {
     setMode((prev) => (prev === 'light' ? 'dark' : 'light'));
   };
 
+  
+
   const theme = getTheme(mode);
 
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <App toggleTheme={toggleTheme} mode={mode} />
+      <JavaProjects />
     </ThemeProvider>
   );
 };
