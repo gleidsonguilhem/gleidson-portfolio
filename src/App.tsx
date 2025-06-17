@@ -17,7 +17,7 @@ export default function App ({ toggleTheme, mode }: Props) {
         </IconButton>
       </Stack>
       <Typography variant="h3" align="center" gutterBottom>
-        Hello, Gleidson!
+        Hello, Gleidson !
       </Typography>
       <Typography variant="h6" align="center" color="text.secondary">
         Full-Stack Developer · Java Spring Boot Microservices · Tech Explorer

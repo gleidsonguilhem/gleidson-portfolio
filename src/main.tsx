@@ -4,6 +4,9 @@ import App from './App';
 import { ThemeProvider, CssBaseline } from '@mui/material';
 import { getTheme } from './theme';
 import JavaProjects from './components/JavaProjects';
+import ProficiencySection from './components/ProficiencySection';
+import './index.css';
+import { useEffect } from 'react';
 
 const Root = () => {
   const [mode, setMode] = useState<'light' | 'dark'>('light');
@@ -12,7 +15,9 @@ const Root = () => {
     setMode((prev) => (prev === 'light' ? 'dark' : 'light'));
   };
 
-  
+useEffect(() => {
+    document.documentElement.classList.toggle('dark', mode === 'dark');
+  }, [mode]);
 
   const theme = getTheme(mode);
 
@@ -21,10 +26,10 @@ const Root = () => {
       <CssBaseline />
       <App toggleTheme={toggleTheme} mode={mode} />
       <JavaProjects />
+      <ProficiencySection />
     </ThemeProvider>
   );
 };
-
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

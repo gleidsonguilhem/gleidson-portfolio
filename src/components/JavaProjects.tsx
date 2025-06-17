@@ -12,7 +12,7 @@ const projects = [
       "A RESTful API built with Spring Boot to manage tasks. Includes CRUD operations, Spring Data JPA, and optional user login.",
     tags: ["Java", "Spring Boot", "REST", "MySQL"],
     github: "https://github.com/gleidsonguilhem/springboot-todo-api",
-    //liveDemo: "https://your-deployment-link.com",
+    liveDemo: "https://your-deployment-link.com",
   },
   // Add more projects here later as needed
 ];
@@ -40,10 +40,9 @@ export default function JavaProjects() {
       >
         Java Projects
       </Typography>
-
       <Grid container spacing={4}>
-        {projects.map((project, index) => (
-          <Grid item xs={12} md={6} key={index}>
+        {Array.isArray(projects) && projects.map((project) => (
+          <Grid>
             <ProjectCard
               title={project.title}
               description={project.description}
