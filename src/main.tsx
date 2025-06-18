@@ -7,6 +7,7 @@ import JavaProjects from './components/JavaProjects';
 import ProficiencySection from './components/ProficiencySection';
 import './index.css';
 import { useEffect } from 'react';
+import { Box, Container, Stack } from '@mui/material'
 
 const Root = () => {
   const [mode, setMode] = useState<'light' | 'dark'>('light');
@@ -24,9 +25,15 @@ useEffect(() => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <App toggleTheme={toggleTheme} mode={mode} />
-      <JavaProjects />
-      <ProficiencySection />
+    <Box>
+      <Container maxWidth="md" >
+        <Stack spacing={4} alignItems="center">
+          <App toggleTheme={toggleTheme} mode={mode} />
+          <JavaProjects />
+          <ProficiencySection />
+        </Stack>
+      </Container>
+    </Box>
     </ThemeProvider>
   );
 };

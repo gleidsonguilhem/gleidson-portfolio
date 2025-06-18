@@ -66,6 +66,7 @@ export default function ProjectCard({
 
       <Box
         sx={{
+          alignContent: 'center',
           display: "flex",
           gap: 2,
           p: 2,
