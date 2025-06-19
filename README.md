@@ -1,7 +1,10 @@
 # Gleidson's Developer Portfolio
 
-Welcome to my personal developer portfolio — built with modern web technologies to showcase my skills, projects, and experience.
+Welcome to my personal developer portfolio — built with modern web technologies to showcase my skills, projects, and experience. This portfolio reflects my passion for clean, efficient, and responsive web design combined with cutting-edge development practices.
 
+Here you will find a curated selection of projects that demonstrate my proficiency in JavaScript, React, TypeScript, and backend technologies. Each project highlights my problem-solving skills, attention to detail, and commitment to writing maintainable, scalable code.
+
+I designed this portfolio to be fully responsive, accessible, and user-friendly, featuring a seamless dark/light theme toggle powered by Material UI. Whether you’re a recruiter, fellow developer, or simply curious, I invite you to explore my work and get in touch for collaboration or opportunities.
 
 ## Tech Stack
 
