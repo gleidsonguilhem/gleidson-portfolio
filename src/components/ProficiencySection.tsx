@@ -80,12 +80,58 @@ const ProficiencySection: React.FC<ProficiencySectionProps> = ({ skills = defaul
           ))}
         </div>
       </div>
-
-      <p className="text-center mt-8 text-brown-700 dark:text-gray-300 max-w-md z-10">
-        Each line of code is another shot of espresso. Here's what I've been brewing lately.
-      </p>
-    </div>
+        <br />    
+      <div className="w-full flex justify-end gap-4 mt-6 z-10">
+        {/* Download Resume Button */}
+        <a
+          href="/Gleidson-Guilhem-Resume.pdf"
+          download="Gleidson-Guilhem-Resume.pdf"
+          className="group px-5 py-2 bg-blue-600 text-white rounded-md font-semibold transition-transform duration-300 ease-in-out inline-flex items-center gap-2 hover:scale-105 hover:text-white"
+          >
+          Download Resume
+          <svg
+            className="w-5 h-5 text-white animate-spin"
+            style={{ animation: "spin 2.5s linear infinite" }}
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <circle
+              className="opacity-25"
+              cx="12"
+              cy="12"
+              r="10"
+              stroke="currentColor"
+              strokeWidth="4"
+            />
+            <path
+              className="opacity-75"
+              fill="currentColor"
+              d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+            />
+          </svg>
+        </a>
+        <a
+          href="mailto:your.email@example.com"
+          className="group px-5 py-2 bg-green-600 text-white rounded-md font-semibold transition-transform duration-300 ease-in-out inline-flex items-center gap-2 hover:scale-105 hover:text-white"
+        >
+          Contact Me
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="w-5 h-5 group-hover:animate-open-envelope transition-transform origin-top"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={2}
+          >
+            <path d="M3 8l9 6 9-6" />
+            <rect x="3" y="8" width="18" height="10" rx="2" ry="2" />
+          </svg>
+        </a>
+      </div>
+      </div>
   );
 };
+
 
 export default ProficiencySection;
