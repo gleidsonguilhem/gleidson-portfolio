@@ -25,7 +25,7 @@ export default function JavaProjects() {
       sx={{
         p: { xs: 2, md: 4 },
         backgroundColor: theme.palette.mode === "dark" ? "#121212" : "#fafafa",
-        borderRadius: 2,
+        borderRadius: 5
       }}
     >
       <Typography
