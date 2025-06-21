@@ -17,9 +17,9 @@ const defaultSkills = [
 
 const ProficiencySection: React.FC<ProficiencySectionProps> = ({ skills = defaultSkills }) => {
   return (
-    <div className="relative flex flex-col items-center justify-center min-h-screen bg-[#ffffff] dark:bg-gray-900 p-6 overflow-hidden transition-colors duration-300">
+    <div className="w-full min-h-screen relative flex flex-col items-center justify-center min-h-screen bg-[#ffffff] dark:bg-gray-900 p-6 overflow-hidden transition-colors duration-300">
       <h2 className="text-4xl font-bold text-brown-800 dark:text-white mb-8 z-10">
-        Brewing My Skills ☕
+        Brewing My Skills
       </h2>
 
       {/* Coffee Beans Background */}
@@ -81,11 +81,11 @@ const ProficiencySection: React.FC<ProficiencySectionProps> = ({ skills = defaul
         </div>
       </div>
         <br />    
-      <div className="w-full flex justify-end gap-4 mt-6 z-10">
+      <div className="w-full flex justify-center gap-4 mt-6 z-10">
         {/* Download Resume Button */}
         <a
-          href="/Gleidson-Guilhem-Resume.pdf"
-          download="Gleidson-Guilhem-Resume.pdf"
+          href="./Gleidson-Guilhem_Resume.pdf"
+          download="Gleidson-Guilhem_Resume.pdf"
           className="group px-5 py-2 bg-blue-600 text-white rounded-md font-semibold transition-transform duration-300 ease-in-out inline-flex items-center gap-2 hover:scale-105 hover:text-white"
           >
           Download Resume
@@ -112,7 +112,7 @@ const ProficiencySection: React.FC<ProficiencySectionProps> = ({ skills = defaul
           </svg>
         </a>
         <a
-          href="mailto:your.email@example.com"
+          href="mailto:gleidson.guilhem@gmail.com"
           className="group px-5 py-2 bg-green-600 text-white rounded-md font-semibold transition-transform duration-300 ease-in-out inline-flex items-center gap-2 hover:scale-105 hover:text-white"
         >
           Contact Me
