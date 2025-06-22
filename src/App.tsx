@@ -15,7 +15,7 @@ export default function App ({ toggleTheme, mode }: Props) {
         <Box textAlign='center' >
         <Typography variant="h3" component="h1">Gleidson Guilhem</Typography>
         <Typography variant="h6" color="text.secondary">
-          Full‑Stack Developer · Java · JavaScript
+          Full‑Stack Developer · Java/Spring · JavaScript
         </Typography>
         <IconButton onClick={toggleTheme} sx={{ mt: 1 }}>
           <Brightness4Icon />
