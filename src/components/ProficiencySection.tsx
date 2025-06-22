@@ -1,5 +1,8 @@
-import React from "react";
 import { motion } from "framer-motion";
+import { Button } from '@mui/material';
+import  ContactModal from './ContactModal';
+import React, { useState } from "react";
+
 
 interface ProficiencySectionProps {
   skills?: string[];
@@ -15,7 +18,13 @@ const defaultSkills = [
   "Tailwind CSS",
 ];
 
+
 const ProficiencySection: React.FC<ProficiencySectionProps> = ({ skills = defaultSkills }) => {
+  //Modal
+  const [isModalOpen, setModalOpen] = React.useState(false);
+  const handleOpenModal = () => setModalOpen(true);
+  const handleCloseModal = () => setModalOpen(false);
+
   return (
     <div className="w-full min-h-screen relative flex flex-col items-center justify-center min-h-screen bg-[#ffffff] dark:bg-gray-900 p-6 overflow-hidden transition-colors duration-300">
       <h2 className="text-4xl font-bold text-brown-800 dark:text-white mb-8 z-10">
@@ -111,11 +120,10 @@ const ProficiencySection: React.FC<ProficiencySectionProps> = ({ skills = defaul
             />
           </svg>
         </a>
-        <a
-          href="mailto:gleidson.guilhem@gmail.com"
+        <button
+          onClick={handleOpenModal}
           className="group px-5 py-2 bg-green-600 text-white rounded-md font-semibold transition-transform duration-300 ease-in-out inline-flex items-center gap-2 hover:scale-105 hover:text-white"
-        >
-          Contact Me
+        > Contact Me 
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="w-5 h-5 group-hover:animate-open-envelope transition-transform origin-top"
@@ -126,9 +134,9 @@ const ProficiencySection: React.FC<ProficiencySectionProps> = ({ skills = defaul
           >
             <path d="M3 8l9 6 9-6" />
             <rect x="3" y="8" width="18" height="10" rx="2" ry="2" />
-          </svg>
-        </a>
+          </svg></button>
       </div>
+      <ContactModal open={isModalOpen} onClose={handleCloseModal} />
       </div>
   );
 };
