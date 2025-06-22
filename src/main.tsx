@@ -10,7 +10,7 @@ import { useEffect } from 'react';
 import { Box, Container, Stack } from '@mui/material'
 
 const Root = () => {
-  const [mode, setMode] = useState<'light' | 'dark'>('dark');
+  const [mode, setMode] = useState<'light' | 'dark'>('light');
 
   const toggleTheme = () => {
     setMode((prev) => (prev === 'light' ? 'dark' : 'light'));
