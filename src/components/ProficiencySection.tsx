@@ -26,7 +26,7 @@ const ProficiencySection: React.FC<ProficiencySectionProps> = ({ skills = defaul
   const handleCloseModal = () => setModalOpen(false);
 
   return (
-    <div className="w-full min-h-screen relative flex flex-col items-center justify-center min-h-screen bg-[#ffffff] dark:bg-gray-900 p-6 overflow-hidden transition-colors duration-300">
+    <div className="w-full min-h-screen relative flex flex-col items-center justify-center min-h-screen bg-gray-200 dark:bg-gray-700 p-6 overflow-hidden transition-colors duration-300">
       <h2 className="text-4xl font-bold text-brown-800 dark:text-white mb-8 z-10">
         Brewing My Skills
       </h2>
