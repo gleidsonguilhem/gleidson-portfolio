@@ -74,7 +74,7 @@ export default function ProjectCard({ title, description, tags, githubUrl, liveD
     >
       Code
     </Button>
-
+{/*
     <Button
       variant="contained"
       size="small"
@@ -85,6 +85,7 @@ export default function ProjectCard({ title, description, tags, githubUrl, liveD
     >
       Demo
     </Button>
+*/}
     </Box>
     </Card>
   );
