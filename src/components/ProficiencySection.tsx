@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Button } from '@mui/material';
 import  ContactModal from './ContactModal';
 import React, { useState } from "react";
-
+import ContactForm from "./ContactForm";
 
 interface ProficiencySectionProps {
   skills?: string[];
@@ -136,7 +136,11 @@ const ProficiencySection: React.FC<ProficiencySectionProps> = ({ skills = defaul
             <rect x="3" y="8" width="18" height="10" rx="2" ry="2" />
           </svg></button>
       </div>
-      <ContactModal open={isModalOpen} onClose={handleCloseModal} />
+      <ContactModal open={isModalOpen} onClose={handleCloseModal}>
+        <ContactForm />
+      </ContactModal>
+      
+      
       </div>
   );
 };
