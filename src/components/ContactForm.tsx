@@ -38,8 +38,6 @@ const ContactForm = () => {
       return;
     }
     
-    
-    
     setIsSubmitting(true);
 
     const serviceID = import.meta.env.VITE_EMAILJS_SERVICE_ID ?? '';
@@ -87,7 +85,7 @@ const ContactForm = () => {
           name="user_name"
           value={formData.user_name}
           onChange={handleChange}
-          className="w-full p-2 border border-gray-300 rounded"
+          className="w-full p-2 border border-gray-300 rounded bg-white text-black dark:bg-gray-800 dark:text-white dark:border-gray-600"
           required
         />
       </div>
@@ -101,7 +99,7 @@ const ContactForm = () => {
           name="user_email"
           value={formData.user_email}
           onChange={handleChange}
-          className="w-full p-2 border border-gray-300 rounded"
+          className="w-full p-2 border border-gray-300 rounded bg-white text-black dark:bg-gray-800 dark:text-white dark:border-gray-600"
           required
         />
       </div>
@@ -114,7 +112,7 @@ const ContactForm = () => {
           name="message"
           value={formData.message}
           onChange={handleChange}
-          className="w-full p-2 border border-gray-300 rounded"
+          className="w-full p-2 border border-gray-300 rounded bg-white text-black dark:bg-gray-800 dark:text-white dark:border-gray-600"
           required
         />
       </div>
