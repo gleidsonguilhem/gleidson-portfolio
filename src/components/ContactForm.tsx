@@ -1,5 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useRef  } from "react";
 import emailjs from "emailjs-com";
+import ReCAPTCHA from 'react-google-recaptcha';
+
+const RECAPTCHA_SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -7,9 +10,11 @@ const ContactForm = () => {
     user_email: "",
     message: "",
   });
+  
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccessMessage] = useState("");
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
 
   // Handle form changes
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -20,9 +25,21 @@ const ContactForm = () => {
     }));
   };
 
+
   // Handle form submission
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Get the captcha token
+    const captchaToken = recaptchaRef.current?.getValue();
+
+    if (!captchaToken) {
+      setError("Please complete the reCAPTCHA to verify you are not a robot.");
+      return;
+    }
+    
+    
+    
     setIsSubmitting(true);
 
     const serviceID = import.meta.env.VITE_EMAILJS_SERVICE_ID ?? '';
@@ -35,6 +52,7 @@ const ContactForm = () => {
         user_name: formData.user_name,
         user_email: formData.user_email,
         message: formData.message,
+        'g-recaptcha-response': captchaToken, // pass captcha token if EmailJS supports it
     };
     
     // Send the email using emailjs
@@ -46,11 +64,13 @@ const ContactForm = () => {
           setIsSubmitting(false);
           setSuccessMessage("Thank you for reaching out! I will review your email and respond as soon as possible! ☕"); // Set success message
           setFormData({ user_name: "", user_email: "", message: "" }); // Reset form
+          recaptchaRef.current?.reset();
         },
         (error) => {
           console.error("Error sending email:", error);
           setError("There was an error sending the email. Please try again later.");
           setIsSubmitting(false);
+          recaptchaRef.current?.reset();
         }
       );
   };
@@ -98,6 +118,12 @@ const ContactForm = () => {
           required
         />
       </div>
+
+      {/* Google reCAPTCHA widget */}
+      <ReCAPTCHA
+        ref={recaptchaRef}
+        sitekey={RECAPTCHA_SITE_KEY}
+      />
 
       {/* Display error if any */}
       {error && <div className="text-red-500">{error}</div>}
