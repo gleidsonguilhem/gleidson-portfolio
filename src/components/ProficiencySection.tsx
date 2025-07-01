@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import { Button } from '@mui/material';
-import  ContactModal from './ContactModal';
+import  ContactModal from '../features/contact/ContactModal';
 import React, { useState } from "react";
-import ContactForm from "./ContactForm";
+import ContactForm from "../features/contact/components/ContactForm";
 
 interface ProficiencySectionProps {
   skills?: string[];

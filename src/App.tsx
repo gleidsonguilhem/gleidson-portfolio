@@ -1,7 +1,7 @@
 import { Box } from '@mui/material';
 import { Container, Typography, Stack, IconButton } from '@mui/material';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
-import './App.css';
+import '../src/styles/App.css';
 
 type Props = {
   toggleTheme: () => void;

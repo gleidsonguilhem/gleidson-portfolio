@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import { ThemeProvider, CssBaseline } from '@mui/material';
-import { getTheme } from './theme';
-import JavaProjects from './components/JavaProjects';
+import { getTheme } from '../src/styles/theme';
+import JavaProjects from './features/projects/pages/JavaProjects';
 import ProficiencySection from './components/ProficiencySection';
-import './index.css';
+import '../src/styles/index.css';
 import { useEffect } from 'react';
 import { Box, Container, Stack } from '@mui/material'
 
