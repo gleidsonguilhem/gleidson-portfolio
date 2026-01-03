@@ -1,4 +1,4 @@
-# Gleidson's Developer Portfolio
+# Developer Portfolio
 
 Welcome to my personal developer portfolio — built with modern web technologies to showcase my skills, projects, and experience. This portfolio reflects my passion for clean, efficient, and responsive web design combined with cutting-edge development practices.
 
