@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import App from './App.js';
 import { ThemeProvider, CssBaseline } from '@mui/material';
 import { getTheme } from '../src/styles/theme.js';
-import JavaProjects from './features/projects/pages/JavaProjects.js';
+import PortfolioProjects from './features/projects/pages/PortfolioProjects.js';
 import ProficiencySection from './components/ProficiencySection.js';
 import '../src/styles/index.css';
 import { useEffect } from 'react';
@@ -29,7 +29,7 @@ useEffect(() => {
       <Container maxWidth="md" >
         <Stack spacing={4} alignItems="center">
           <App toggleTheme={toggleTheme} mode={mode} />
-          <JavaProjects />
+          <PortfolioProjects />
           <ProficiencySection />
         </Stack>
       </Container>

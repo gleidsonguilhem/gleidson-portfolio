@@ -19,14 +19,14 @@ interface ProficiencySectionProps {
 
 // ✅ ADD NEW SKILLS HERE — just append to this array
 const defaultSkills: Skill[] = [
-  { name: "JavaScript",  level: 92, label: "Advanced",   color: "#f7df1e" },
-  { name: "TypeScript",  level: 85, label: "Advanced",   color: "#3178c6" },
-  { name: "React",       level: 88, label: "Advanced",   color: "#61dafb" },
-  { name: "Node.js",     level: 78, label: "Proficient", color: "#68a063" },
-  { name: "Spring Boot", level: 70, label: "Proficient", color: "#6db33f" },
-  { name: "SQL",         level: 75, label: "Proficient", color: "#f29111" },
-  { name: "Tailwind CSS",level: 82, label: "Advanced",   color: "#38bdf8" },
-  // { name: "Docker",   level: 65, label: "Familiar",   color: "#2496ed" },
+  { name: "JavaScript",  level: 92, label: "",   color: "#f7df1e" },
+  { name: "TypeScript",  level: 85, label: "",   color: "#3178c6" },
+  { name: "React",       level: 88, label: "",   color: "#61dafb" },
+  { name: "Node.js",     level: 78, label: "", color: "#68a063" },
+  { name: "Spring Boot", level: 70, label: "", color: "#6db33f" },
+  { name: "SQL",         level: 75, label: "", color: "#f29111" },
+  { name: "Tailwind CSS",level: 82, label: "",   color: "#38bdf8" },
+  { name: "n8n",         level: 90, label: "",   color: "#e535ab" },
   // { name: "GraphQL",  level: 60, label: "Familiar",   color: "#e535ab" },
 ];
 
@@ -51,7 +51,7 @@ const SkillCard: React.FC<{ skill: Skill; index: number }> = ({ skill, index }) 
         background: hovered ? `${neonColor}12` : cardBg,
         border: `1px solid ${hovered ? neonColor : cardBorder}`,
         borderRadius: 12,
-        padding: '18px 20px',
+        padding: '28px 50px',
         cursor: 'default',
         transition: 'background 0.3s, border-color 0.3s, box-shadow 0.3s',
         boxShadow: hovered
@@ -172,7 +172,7 @@ const ProficiencySection: React.FC<ProficiencySectionProps> = ({ skills = defaul
             md: 'repeat(3, 1fr)',
             lg: 'repeat(4, 1fr)',
           },
-          gap: 2.5,
+          gap: 5,
           width: '100%',
           maxWidth: 960,
           mb: 8,
