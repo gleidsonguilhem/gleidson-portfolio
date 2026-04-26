@@ -8,6 +8,7 @@ type Props = {
   mode: 'light' | 'dark';
 }
 
+
 export default function App ({ toggleTheme, mode }: Props) {
   return (
       <div className='container'>

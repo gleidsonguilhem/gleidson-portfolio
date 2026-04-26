@@ -1,149 +1,218 @@
 import { motion } from "framer-motion";
-import { Button } from '@mui/material';
-import  ContactModal from '../features/contact/ContactModal';
+import ContactModal from '../features/contact/ContactModal';
 import React, { useState } from "react";
 import ContactForm from "../features/contact/components/ContactForm";
+import { Box, Typography, Button, useTheme } from '@mui/material';
+import DownloadIcon from '@mui/icons-material/Download';
+import MailOutlineIcon from '@mui/icons-material/MailOutline';
 
-interface ProficiencySectionProps {
-  skills?: string[];
+interface Skill {
+  name: string;
+  level: number;
+  label: string;
+  color?: string;
 }
 
-const defaultSkills = [
-  "JavaScript",
-  "React",
-  "TypeScript",
-  "Node.js",
-  "Spring Boot",
-  "SQL",
-  "Tailwind CSS",
+interface ProficiencySectionProps {
+  skills?: Skill[];
+}
+
+// ✅ ADD NEW SKILLS HERE — just append to this array
+const defaultSkills: Skill[] = [
+  { name: "JavaScript",  level: 92, label: "Advanced",   color: "#f7df1e" },
+  { name: "TypeScript",  level: 85, label: "Advanced",   color: "#3178c6" },
+  { name: "React",       level: 88, label: "Advanced",   color: "#61dafb" },
+  { name: "Node.js",     level: 78, label: "Proficient", color: "#68a063" },
+  { name: "Spring Boot", level: 70, label: "Proficient", color: "#6db33f" },
+  { name: "SQL",         level: 75, label: "Proficient", color: "#f29111" },
+  { name: "Tailwind CSS",level: 82, label: "Advanced",   color: "#38bdf8" },
+  // { name: "Docker",   level: 65, label: "Familiar",   color: "#2496ed" },
+  // { name: "GraphQL",  level: 60, label: "Familiar",   color: "#e535ab" },
 ];
 
+const SkillCard: React.FC<{ skill: Skill; index: number }> = ({ skill, index }) => {
+  const theme = useTheme();
+  const [hovered, setHovered] = useState(false);
+  const neonColor = skill.color ?? '#534AB7';
 
-const ProficiencySection: React.FC<ProficiencySectionProps> = ({ skills = defaultSkills }) => {
-  //Modal
-  const [isModalOpen, setModalOpen] = React.useState(false);
-  const handleOpenModal = () => setModalOpen(true);
-  const handleCloseModal = () => setModalOpen(false);
+  const cardBg     = theme.palette.background.paper;
+  const cardBorder = theme.palette.mode === 'dark'
+    ? 'rgba(255,255,255,0.1)'
+    : 'rgba(0,0,0,0.12)';
 
   return (
-    <div className="w-full min-h-screen relative flex flex-col items-center justify-center min-h-screen bg-gray-200 dark:bg-gray-700 p-6 overflow-hidden transition-colors duration-300">
-      <h2 className="text-4xl font-bold text-brown-800 dark:text-white mb-8 z-10">
-        Brewing My Skills
-      </h2>
-
-      {/* Coffee Beans Background */}
-      {[...Array(20)].map((_, i) => (
-        <div
-          key={i}
-          className="absolute text-2xl animate-float text-[#6d4c41] dark:text-[#d7ccc8]"
-          style={{
-            top: `${Math.random() * 100}%`,
-            left: `${Math.random() * 100}%`,
-            animationDelay: `${Math.random() * 5}s`,
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: index * 0.07, duration: 0.4, ease: "easeOut" }}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      style={{
+        background: hovered ? `${neonColor}12` : cardBg,
+        border: `1px solid ${hovered ? neonColor : cardBorder}`,
+        borderRadius: 12,
+        padding: '18px 20px',
+        cursor: 'default',
+        transition: 'background 0.3s, border-color 0.3s, box-shadow 0.3s',
+        boxShadow: hovered
+          ? `0 0 12px ${neonColor}66, 0 0 28px ${neonColor}33`
+          : 'none',
+      }}
+    >
+      <Box display="flex" justifyContent="space-between" alignItems="center" mb={1.5}>
+        <Typography
+          variant="body1"
+          fontWeight={500}
+          sx={{
+            color: hovered ? neonColor : 'text.primary',
+            transition: 'color 0.3s',
+            fontSize: '0.95rem',
           }}
         >
-          ☕
-        </div>
-      ))}
-
-      {/* Coffee Machine */}
-      <div className="relative w-60 h-72 bg-[#c69c6d] dark:bg-[#4e342e] rounded-xl shadow-lg flex flex-col items-center justify-end overflow-hidden z-10">
-        <div className="absolute top-0 w-full h-16 bg-[#4e342e] dark:bg-[#3e2723] rounded-b-2xl flex items-center justify-center text-white font-bold shadow-inner">
-          
-        </div>
-
-        {/* Steam */}
-        <motion.div
-          className="absolute bottom-24 w-6 h-12 z-20"
-          animate={{ y: [-10, -30], opacity: [1, 0] }}
-          transition={{ repeat: Infinity, duration: 2, ease: "easeOut" }}
+          {skill.name}
+        </Typography>
+        <Typography
+          variant="caption"
+          sx={{
+            color: hovered ? neonColor : 'text.secondary',
+            transition: 'color 0.3s',
+            fontWeight: hovered ? 600 : 400,
+            fontSize: '0.72rem',
+            letterSpacing: '0.04em',
+          }}
         >
-          <div className="w-full h-full bg-white rounded-full blur-sm opacity-50"></div>
-        </motion.div>
+          {skill.label}
+        </Typography>
+      </Box>
 
-        {/* Cup */}
-        <div className="absolute bottom-4 w-20 h-20 bg-white dark:bg-[#d7ccc8] rounded-b-full border-4 border-[#a1887f] z-10"></div>
+      {/* Track */}
+      <Box
+        sx={{
+          width: '100%',
+          height: 7,
+          bgcolor: 'action.hover',
+          borderRadius: 4,
+          overflow: 'hidden',
+        }}
+      >
+        <motion.div
+          style={{
+            height: '100%',
+            borderRadius: 4,
+            background: neonColor,
+            boxShadow: hovered ? `0 0 8px ${neonColor}` : 'none',
+            transition: 'box-shadow 0.3s',
+          }}
+          initial={{ width: 0 }}
+          animate={{ width: `${skill.level}%` }}
+          transition={{ delay: index * 0.07 + 0.2, duration: 0.7, ease: "easeOut" }}
+        />
+      </Box>
 
-        {/* Skill drops */}
-        <div className="absolute bottom-[6.5rem] left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 z-20">
-          {skills.map((skill, index) => (
-            <motion.div
-              key={skill}
-              initial={{ opacity: 0, y: 0 }}
-              animate={{
-                opacity: [0, 1, 1, 0],    // stay visible then fade out
-                y: [0, 0, -60, -60],     // move up then hold position
-              }}
-              transition={{
-                delay: index * 0.7,
-                duration: 7,
-                times: [0, 0.1, 0.7, 1], // timing for keyframes (0%, 28.5%, 100%)
-                repeat: Infinity,
-                repeatDelay: skills.length * 0.7,
-                ease: "linear",
-              }}
-              className="bg-[#795548] text-white px-4 py-1 rounded-full shadow-md text-sm"
-            >
-              {skill}
-            </motion.div>
-          ))}
-        </div>
-      </div>
-        <br />    
-      <div className="w-full flex justify-center gap-4 mt-6 z-10">
-        {/* Download Resume Button */}
-        <a
-          href="./Gleidson-Guilhem_Resume.pdf"
-          download="Gleidson-Guilhem_Resume.pdf"
-          className="group px-5 py-2 bg-blue-600 text-white rounded-md font-semibold transition-transform duration-300 ease-in-out inline-flex items-center gap-2 hover:scale-105 hover:text-white"
-          >
-          Download Resume
-          <svg
-            className="w-5 h-5 text-white animate-spin"
-            style={{ animation: "spin 2.5s linear infinite" }}
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-          >
-            <circle
-              className="opacity-25"
-              cx="12"
-              cy="12"
-              r="10"
-              stroke="currentColor"
-              strokeWidth="4"
-            />
-            <path
-              className="opacity-75"
-              fill="currentColor"
-              d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
-            />
-          </svg>
-        </a>
-        <button
-          onClick={handleOpenModal}
-          className="group px-5 py-2 bg-green-600 text-white rounded-md font-semibold transition-transform duration-300 ease-in-out inline-flex items-center gap-2 hover:scale-105 hover:text-white"
-        > Contact Me 
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="w-5 h-5 group-hover:animate-open-envelope transition-transform origin-top"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth={2}
-          >
-            <path d="M3 8l9 6 9-6" />
-            <rect x="3" y="8" width="18" height="10" rx="2" ry="2" />
-          </svg></button>
-      </div>
-      <ContactModal open={isModalOpen} onClose={handleCloseModal}>
-        <ContactForm />
-      </ContactModal>
-      
-      
-      </div>
+      {/* Percentage on hover */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: hovered ? 1 : 0 }}
+        transition={{ duration: 0.2 }}
+      >
+        <Typography
+          variant="caption"
+          sx={{ color: neonColor, fontWeight: 600, fontSize: '0.7rem' }}
+        >
+          {skill.level}%
+        </Typography>
+      </motion.div>
+    </motion.div>
   );
 };
 
+const ProficiencySection: React.FC<ProficiencySectionProps> = ({ skills = defaultSkills }) => {
+  const theme = useTheme();
+  const [isModalOpen, setModalOpen] = useState(false);
+
+  return (
+    <Box
+      component="section"
+      sx={{
+        width: '100%',
+        minHeight: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        bgcolor: 'background.default',
+        px: { xs: 2, sm: 4, md: 8 },
+        py: 12,
+        transition: 'background-color 0.3s',
+      }}
+    >
+      {/* Header */}
+      <Box textAlign="center" mb={7}>
+        <Typography
+          variant="h4"
+          component="h2"
+          fontWeight={500}
+          gutterBottom
+          sx={{ color: 'text.primary', letterSpacing: '-0.5px' }}
+        >
+          Technical skills
+        </Typography>
+        <Typography variant="body1" color="text.secondary">
+          Hover a card to see details
+        </Typography>
+      </Box>
+
+      {/* Skills Grid */}
+      <Box
+        sx={{
+          display: 'grid',
+          gridTemplateColumns: {
+            xs: '1fr',
+            sm: 'repeat(2, 1fr)',
+            md: 'repeat(3, 1fr)',
+            lg: 'repeat(4, 1fr)',
+          },
+          gap: 2.5,
+          width: '100%',
+          maxWidth: 960,
+          mb: 8,
+        }}
+      >
+        {skills.map((skill, index) => (
+          <SkillCard key={skill.name} skill={skill} index={index} />
+        ))}
+      </Box>
+
+      {/* CTA Buttons */}
+      <Box display="flex" gap={2} flexWrap="wrap" justifyContent="center">
+        <Button
+          variant="contained"
+          startIcon={<DownloadIcon />}
+          href="./Gleidson-Guilhem_Resume.pdf"
+          download="Gleidson-Guilhem_Resume.pdf"
+          disableElevation
+          size="large"
+          sx={{ textTransform: 'none', fontWeight: 500, borderRadius: 2, px: 3 }}
+        >
+          Download resume
+        </Button>
+
+        <Button
+          variant="outlined"
+          startIcon={<MailOutlineIcon />}
+          onClick={() => setModalOpen(true)}
+          size="large"
+          sx={{ textTransform: 'none', fontWeight: 500, borderRadius: 2, px: 3 }}
+        >
+          Contact me
+        </Button>
+      </Box>
+
+      <ContactModal open={isModalOpen} onClose={() => setModalOpen(false)}>
+        <ContactForm />
+      </ContactModal>
+    </Box>
+  );
+};
 
 export default ProficiencySection;
