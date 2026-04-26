@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
-import ContactModal from '../features/contact/ContactModal';
+import ContactModal from '../features/contact/ContactModal.js';
 import React, { useState } from "react";
-import ContactForm from "../features/contact/components/ContactForm";
+import ContactForm from "../features/contact/components/ContactForm.js";
 import { Box, Typography, Button, useTheme } from '@mui/material';
 import DownloadIcon from '@mui/icons-material/Download';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';

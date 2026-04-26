@@ -3,7 +3,7 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import { useTheme } from '@mui/material';
 
-import ProjectCard from "../components/ProjectCard";  // <-- import the reusable card here
+import ProjectCard from "../components/ProjectCard.js";  // <-- import the reusable card here
 
 const projects = [
   {
