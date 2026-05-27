@@ -41,10 +41,18 @@ interface Project {
 const projects: Project[] = [
   // ── Project 1 ───────────────────────────────────────────────
   {
-    title: "Task Manager API",
+    title: "AI-Powered Browser Automation with Stagehand",
     description:
-      "A RESTful API built with Spring Boot to manage tasks. Includes CRUD operations, Spring Data JPA, and optional user login.",
-    tags: ["Java", "Spring Boot", "REST", "MySQL"],
+      "Built an AI-powered browser automation tool using Stagehand, Playwright, TypeScript, and Docker. The application executes web-based tasks through natural language instructions, enabling intelligent navigation, data extraction, and workflow automation.",
+    tags: ["TypeScript",
+            "Stagehand",
+            "Playwright",
+            "AI",
+            "Docker",
+            "Browser Automation",
+            "LLM",
+            "Web Automation"
+          ],
     color: "#ff6d5a",
     brewMethod: "pour-over",
     github: "https://github.com/gleidsonguilhem/springboot-todo-api",
